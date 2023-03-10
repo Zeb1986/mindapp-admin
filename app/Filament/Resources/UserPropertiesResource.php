@@ -39,15 +39,10 @@ class UserPropertiesResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user_id'),
-                Tables\Columns\TextColumn::make('provider'),
                 Tables\Columns\TextColumn::make('email')->searchable(),
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\ImageColumn::make('picture'),
                 Tables\Columns\TextColumn::make('locale'),
-                Tables\Columns\IconColumn::make('is_premium')
-                    ->boolean()
-                    ->trueIcon('heroicon-o-badge-check')
-                    ->falseIcon('heroicon-o-x-circle'),
+                Tables\Columns\TextColumn::make('user.registration_time')->label('Registration Time')->dateTime(),
             ])
             ->filters([
                 //

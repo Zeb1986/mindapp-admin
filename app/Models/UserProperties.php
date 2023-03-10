@@ -18,4 +18,9 @@ class UserProperties extends Model
 {
     use HasFactory;
     protected $table = 'user_properties';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
+    }
 }

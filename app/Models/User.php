@@ -19,4 +19,9 @@ class User extends Model
 {
     use HasFactory;
     protected $table = 'users';
+
+    public function user_properties()
+    {
+        return $this->hasOne(UserProperties::class, 'user_id', 'user_id');
+    }
 }
