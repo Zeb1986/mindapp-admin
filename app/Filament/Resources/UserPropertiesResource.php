@@ -24,12 +24,9 @@ class UserPropertiesResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('user_id')->required(),
-                Forms\Components\TextInput::make('provider')->required(),
                 Forms\Components\TextInput::make('email')->email()->required(),
                 Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\TextInput::make('picture')->required(),
                 Forms\Components\TextInput::make('locale')->required(),
-                Forms\Components\Checkbox::make('is_premium')->required(),
 
             ]);
     }
