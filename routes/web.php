@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ImageUploadController;
+use App\Http\Controllers\S3Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/admin');
 });
+
+Route::get('/upload-s3', [S3Controller::class, 'index'])->name('upload-s3');
+Route::resource('images', S3Controller::class, ['only' => ['store', 'destroy']]);

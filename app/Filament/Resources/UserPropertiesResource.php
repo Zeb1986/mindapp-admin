@@ -23,11 +23,10 @@ class UserPropertiesResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('user_id')->required(),
-                Forms\Components\TextInput::make('email')->email()->required(),
-                Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\TextInput::make('locale')->required(),
-
+//                Forms\Components\TextInput::make('user_id')->required(),
+//                Forms\Components\TextInput::make('email')->email()->required(),
+//                Forms\Components\TextInput::make('name')->required(),
+//                Forms\Components\TextInput::make('locale')->required(),
             ]);
     }
 
@@ -45,10 +44,10 @@ class UserPropertiesResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+//                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+//                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
@@ -63,8 +62,8 @@ class UserPropertiesResource extends Resource
     {
         return [
             'index' => Pages\ListUserProperties::route('/'),
-            'create' => Pages\CreateUserProperties::route('/create'),
-            'edit' => Pages\EditUserProperties::route('/{record}/edit'),
+//            'create' => Pages\CreateUserProperties::route('/create'),
+//            'edit' => Pages\EditUserProperties::route('/{record}/edit'),
         ];
     }
 }

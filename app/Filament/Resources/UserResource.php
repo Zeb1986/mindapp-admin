@@ -23,13 +23,13 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('user_id')->required(),
-                Forms\Components\TextInput::make('provider')->required(),
-                Forms\Components\TextInput::make('access_token')->required(),
-                Forms\Components\TextInput::make('access_token_expiry')->required(),
-                Forms\Components\TextInput::make('refresh_token')->required(),
-                Forms\Components\TextInput::make('registration_time')->required(),
-                Forms\Components\TextInput::make('last_synced')->required(),
+//                Forms\Components\TextInput::make('user_id')->required(),
+//                Forms\Components\TextInput::make('provider')->required(),
+//                Forms\Components\TextInput::make('access_token')->required(),
+//                Forms\Components\TextInput::make('access_token_expiry')->required(),
+//                Forms\Components\TextInput::make('refresh_token')->required(),
+//                Forms\Components\TextInput::make('registration_time')->required(),
+//                Forms\Components\TextInput::make('last_synced')->required(),
             ]);
     }
 
@@ -49,10 +49,10 @@ class UserResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+//                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+//                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
@@ -67,8 +67,8 @@ class UserResource extends Resource
     {
         return [
             'index' => Pages\ListUsers::route('/'),
-            'create' => Pages\CreateUser::route('/create'),
-            'edit' => Pages\EditUser::route('/{record}/edit'),
+//            'create' => Pages\CreateUser::route('/create'),
+//            'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
     }
 }

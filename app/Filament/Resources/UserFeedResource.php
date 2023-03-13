@@ -23,12 +23,12 @@ class UserFeedResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('user_feed_id')->required(),
-                Forms\Components\TextInput::make('user_id')->required(),
-                Forms\Components\TextInput::make('provider')->required(),
-                Forms\Components\TextInput::make('feed_id')->required(),
-                Forms\Components\TextInput::make('state')->required(),
-                Forms\Components\TextInput::make('timestamp')->required(),
+//                Forms\Components\TextInput::make('user_feed_id')->required(),
+//                Forms\Components\TextInput::make('user_id')->required(),
+//                Forms\Components\TextInput::make('provider')->required(),
+//                Forms\Components\TextInput::make('feed_id')->required(),
+//                Forms\Components\TextInput::make('state')->required(),
+//                Forms\Components\TextInput::make('timestamp')->required(),
             ]);
     }
 
@@ -47,10 +47,10 @@ class UserFeedResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+//                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+//                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
@@ -65,8 +65,8 @@ class UserFeedResource extends Resource
     {
         return [
             'index' => Pages\ListUserFeeds::route('/'),
-            'create' => Pages\CreateUserFeed::route('/create'),
-            'edit' => Pages\EditUserFeed::route('/{record}/edit'),
+//            'create' => Pages\CreateUserFeed::route('/create'),
+//            'edit' => Pages\EditUserFeed::route('/{record}/edit'),
         ];
     }
 }
