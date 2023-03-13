@@ -33,31 +33,43 @@
                 </div>
             @endif
         </div>
-        <div class="col-sm-12 mb-3">
-            <div class="card border-0 text-center">
-                <form action="{{ url('/images') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                        <input type="file" name="image" id="image">
-                        <button type="submit" class="btn btn-primary">Upload</button>
-                    </div>
-                </form>
-            </div>
-        </div>
         <div class="col-lg-6 m-auto">
-            @if (count($images) > 0)
-                        @foreach ($images as $image)
+            @if (count($feeds) > 0)
+                        @foreach ($feeds as $feed)
                             <div class="mb-3">
-                                <p class="d-block w-100 text-break" >Image name: {{$image['name']}}</p>
-                                <div class="link text-break mb-3">{{ $image['src'] }}</div>
-                                <img class="d-block w-100" src="{{ $image['src'] }}" alt="{{ $image['name'] }}">
-                                <div class="mt-3">
-                                    <form action="{{ url('images/' . $image['name']) }}" method="POST">
-                                        {{ csrf_field() }}
-                                        {{ method_field('DELETE') }}
-                                        <button type="submit" class="btn btn-danger">Remove</button>
-                                    </form>
+                                <p class="d-block w-100 text-break" >Feed ID: {{$feed['feed_id']}}</p>
+                                <div class="link text-break mb-3">{{ $feed['image'] }}</div>
+                                <img class="d-block w-100" src="{{ $feed['image'] }}" alt="">
+                                <div class="d-sm-flex justify-content-between mt-3">
+                                    <div class="">
+                                        <form action="{{ url('' . $feed['img_path']) }}" method="POST">
+                                            {{ csrf_field() }}
+                                            {{ method_field('DELETE') }}
+                                            @if(!!$feed['img_path'])
+                                                <button type="submit" class="btn btn-danger">Remove</button>
+                                                @else
+                                                <button disabled="true" type="submit" class="btn btn-danger">Remove</button>
+                                            @endif
+
+                                        </form>
+                                    </div>
+                                    <div class="card border-0 text-center">
+                                        <form action="{{ url('/images') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                                            {{ csrf_field() }}
+                                            <div class="form-group">
+                                                <input type="hidden" name="feed_id" id="feed_id" value="{{$feed['feed_id']}}">
+                                                <input type="file" name="image" id="image">
+                                                @if(!$feed['img_path'])
+                                                    <button type="submit" class="btn btn-primary">Upload</button>
+                                                @else
+                                                    <button disabled="true" type="submit" class="btn btn-primary">Upload</button>
+                                                @endif
+
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
+
                             </div>
                         @endforeach
             @else

@@ -26,6 +26,7 @@ class Feed extends Model
         'feed_id',
         'type',
         'image',
+        'img_path',
         'gradient',
         'title',
         'subtitle',

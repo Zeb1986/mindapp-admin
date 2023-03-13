@@ -29,12 +29,11 @@ class FeedResource extends Resource
                     'reflection' => 'reflection',
                     'meditation' => 'meditation',
                 ]),
-                Forms\Components\TextInput::make('image')->required(),
+                Forms\Components\TextInput::make('image'),
                 Forms\Components\TextInput::make('gradient')->required(),
                 Forms\Components\TextInput::make('title')->required(),
                 Forms\Components\TextInput::make('subtitle'),
                 Forms\Components\Select::make('time')->options([
-                    null => 'none',
                     'morning' => 'morning',
                     'evening' => 'evening',
                 ]),
