@@ -34,11 +34,11 @@ class UserPropertiesResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('user_id'),
-                Tables\Columns\TextColumn::make('email')->searchable(),
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('locale'),
-                Tables\Columns\TextColumn::make('user.registration_time')->label('Registration Time')->dateTime(),
+                Tables\Columns\TextColumn::make('user_id')->sortable(),
+                Tables\Columns\TextColumn::make('email')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('name')->sortable(),
+                Tables\Columns\TextColumn::make('locale')->sortable(),
+                Tables\Columns\TextColumn::make('user.registration_time')->label('Registration Time')->dateTime()->sortable(),
             ])
             ->filters([
                 //

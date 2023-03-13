@@ -45,14 +45,14 @@ class FeedResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('feed_id'),
-                Tables\Columns\TextColumn::make('type'),
-                Tables\Columns\TextColumn::make('image'),
-                Tables\Columns\TextColumn::make('gradient'),
-                Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('subtitle'),
-                Tables\Columns\TextColumn::make('time'),
-                Tables\Columns\TextColumn::make('timestamp'),
+                Tables\Columns\TextColumn::make('feed_id')->sortable(),
+                Tables\Columns\TextColumn::make('type')->sortable(),
+                Tables\Columns\TextColumn::make('image')->sortable(),
+                Tables\Columns\TextColumn::make('gradient')->sortable(),
+                Tables\Columns\TextColumn::make('title')->sortable(),
+                Tables\Columns\TextColumn::make('subtitle')->sortable(),
+                Tables\Columns\TextColumn::make('time')->sortable(),
+                Tables\Columns\TextColumn::make('timestamp')->sortable(),
             ])
             ->filters([
                 //
