@@ -46,22 +46,18 @@
         </div>
         <div class="col-lg-6 m-auto">
             @if (count($images) > 0)
-                        @foreach ($images as $index => $image)
+                        @foreach ($images as $image)
                             <div class="mb-3">
                                 <p class="d-block w-100 text-break" >Image name: {{$image['name']}}</p>
-                                <div class="link text-break mb-3" id="link-{{ $index + 1 }}">{{ $image['src'] }}</div>
-                                <div class="d-flex justify-content-between mb-3">
-                                        <button class="btn btn-primary copy-link-btn" data-clipboard-target="#link-{{ $index + 1 }}">Copy link on s3</button>
-                                    <div class="">
-                                        <form action="{{ url('images/' . $image['name']) }}" method="POST">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
-                                            <button type="submit" class="btn btn-danger">Remove</button>
-                                        </form>
-                                    </div>
-                                </div>
-
+                                <div class="link text-break mb-3">{{ $image['src'] }}</div>
                                 <img class="d-block w-100" src="{{ $image['src'] }}" alt="{{ $image['name'] }}">
+                                <div class="mt-3">
+                                    <form action="{{ url('images/' . $image['name']) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button type="submit" class="btn btn-danger">Remove</button>
+                                    </form>
+                                </div>
                             </div>
                         @endforeach
             @else
@@ -71,14 +67,5 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
-<script>
-import ClipboardJS from 'clipboard';
-
-var clipboard = new ClipboardJS('.copy-link-btn');
-clipboard.on('success', function(e) {
-        console.log('Link copy!');
-    });
-</script>
 </body>
 </html>
