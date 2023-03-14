@@ -11,7 +11,7 @@ class S3Controller extends Controller
 {
     public function index()
     {
-        $feeds = Feed::all()->sortByDesc('timestamp')->toArray();
+        $feeds = Feed::latest('timestamp')->simplePaginate(10);
         return view('upload-s3', compact('feeds'));
     }
 

@@ -72,9 +72,14 @@
 
                             </div>
                         @endforeach
+
             @else
                 <p>Nothing found</p>
             @endif
+            <div class="text-center mt-5 mb-5">
+                {{ $feeds->links() }}
+            </div>
+
         </div>
     </div>
 </div>

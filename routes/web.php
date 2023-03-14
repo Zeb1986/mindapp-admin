@@ -18,8 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/admin');
 });
+Route::middleware(['auth.basic'])->group(function () {
+    Route::get('/upload-s3', [S3Controller::class, 'index'])->name('upload-s3');
+    Route::resource('images', S3Controller::class, ['only' => ['store', 'destroy']]);
+});
 
-Route::get('/upload-s3', [S3Controller::class, 'index'])->name('upload-s3');
-Route::resource('images', S3Controller::class, ['only' => ['store', 'destroy']]);
 
 
