@@ -15,20 +15,6 @@ class S3Controller extends Controller
         return view('upload-s3', compact('feeds'));
     }
 
-//    public function deleteImages() {
-//        $images = [];
-//        $files = Storage::disk('s3')->files('images');
-//        foreach ($files as $file) {
-//            $url = $this->getImageUrl($file);
-//            $images[] = [
-//                'name' => str_replace('images/', '', $file),
-//                'src' => $url
-//            ];
-//        }
-//        return view('delete-s3', compact('images'));
-//    }
-
-
     public function store(Request $request)
     {
         $this->validate($request, [
